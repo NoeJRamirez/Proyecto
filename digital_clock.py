@@ -14,10 +14,21 @@ class DigitalClock:
         assert s<60 and s >=0
         self.__s=s
 
-def get_time(self)->tuple[int, int, int]:
-    """muestra la hora del reloj digital(DigitalClock)
+    def get_time(self)->tuple[int, int, int]:
+        """muestra la hora del reloj digital(DigitalClock)
 
-    Returns:
-        tuple[int, int, int]:h,m,s es en formato 24 hrs
-    """
-    return self.__h, self.__m, self.__s
+        Returns:
+            tuple[int, int, int]:h,m,s es en formato 24 hrs
+        """
+        return self.__h, self.__m, self.__s
+
+    def Clear_time(self)->None:
+        """Clearhora actual
+        """
+        self.__h, self.__m, self.__s=0,0,0
+    def increment(self)->None:
+        self.__h=self.__h+1 if self.__m==59 and self.__s == 59 else self.__h
+        self.__h=0 if self.__h==24 else self.__h
+        self.__m=self.__m+1 if self.__s==59 else self.__m
+        self.__m=0 if self.__m==60 else self.__m
+        self.__s=self.__s+1 if self.__s <59 else 0
