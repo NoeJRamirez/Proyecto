@@ -1,12 +1,15 @@
 from test import clock_test
-debug= True
+from test import fsm_test 
 
+debug = True
 
-
-def main()->None:
+def main() -> None:
     pass
-if __name__=='__main__':
+
+if __name__ == '__main__':
     if debug:
-        clock_test()
+        # Descomenta segun el test que quieras hacer 
+        # clock_test()
+        fsm_test()
     else:
         main()
